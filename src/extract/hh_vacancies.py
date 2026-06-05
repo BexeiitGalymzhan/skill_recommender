@@ -119,7 +119,6 @@ def run_vacancy_ingestion(query: str = "data engineer", area: int = 40, ds=None)
     vacancies = fetch_vacancies_raw(token, query=query, area=area)
     logger.info(f"Fetched {len(vacancies)} vacancies")
 
-    s3_client.upload_file(vacancies, object_name="vacancies", ds=ds)
+    key = s3_client.upload_file(vacancies, object_name="vacancies", ds=ds)
 
-
-run_vacancy_ingestion()
+    return key

@@ -5,9 +5,13 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "apache-airflow>=3.2.2",
     "boto3>=1.43.20",
     "curl-cffi>=0.15.0",
+    "deltalake>=1.6.0",
     "dotenv>=0.9.9",
+    "pandas>=3.0.3",
+    "pyarrow>=24.0.0",
     "requests>=2.34.2",
     "tenacity>=9.1.4",
 ]

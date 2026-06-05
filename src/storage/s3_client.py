@@ -50,6 +50,9 @@ class S3Client:
                 ContentType='application/json'
             )
             logger.info("Uploaded to s3://%s/%s", self.bucket_name, key)
+
+            return key
+
         except (botocore.exceptions.BotoCoreError, botocore.exceptions.ClientError) as e:
             logger.error("S3 upload failed for key %s: %s",
                          key, e, exc_info=True)
