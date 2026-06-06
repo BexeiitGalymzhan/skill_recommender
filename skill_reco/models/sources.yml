@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: main
+    tables:
+      - name: hh_vacancies
+        config:
+          external_location: 'delta_scan(''s3://{{ env_var("S3_BUCKET_NAME") }}/bronze/hh_vacancies'')'

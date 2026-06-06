@@ -1,0 +1,9 @@
+skill_reco:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "skill_reco.duckdb"
+      extensions:
+        - delta
+        - httpfs

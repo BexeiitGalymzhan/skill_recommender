@@ -1,0 +1,19 @@
+models:
+  - name: hh_vacancies
+    description: "Table contains HeadHunter vacancies data"
+    columns:
+      - name: vacancy_id
+        description: "Unique identifier for the vacancy"
+        data_tests:
+          - unique
+          - not_null
+
+      - name: title
+        description: "Title of the vacancy"
+        data_tests:
+          - not_null
+
+      - name: employer_name
+        description: "Name of the employer"
+        data_tests:
+          - not_null
