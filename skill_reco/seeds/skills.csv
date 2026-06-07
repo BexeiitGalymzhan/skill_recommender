@@ -1,0 +1,65 @@
+skill_name,category
+python,programming
+sql,programming
+r,programming
+scala,programming
+java,programming
+bash,programming
+airflow,orchestration
+prefect,orchestration
+dagster,orchestration
+dbt,transformation
+spark,processing
+pyspark,processing
+kafka,streaming
+flink,streaming
+pandas,programming
+numpy,programming
+docker,infrastructure
+kubernetes,infrastructure
+terraform,infrastructure
+git,version control
+linux,infrastructure
+postgresql,database
+mysql,database
+clickhouse,database
+snowflake,database
+bigquery,database
+redshift,database
+greenplum,database
+mongodb,database
+elasticsearch,database
+cassandra,database
+redis,database
+delta lake,storage
+iceberg,storage
+parquet,storage
+hive,query engine
+trino,query engine
+presto,query engine
+duckdb,database
+aws,cloud
+gcp,cloud
+azure,cloud
+s3,cloud
+ec2,cloud
+glue,cloud
+databricks,processing
+hadoop,processing
+mlflow,ml
+pytorch,ml
+tensorflow,ml
+scikit-learn,ml
+tableau,visualization
+power bi,visualization
+grafana,visualization
+superset,visualization
+excel,visualization
+looker,visualization
+rest api,integration
+graphql,integration
+etl,concept
+elt,concept
+data warehouse,concept
+data lake,concept
+data lakehouse,concept
