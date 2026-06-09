@@ -36,10 +36,34 @@ def vacancy_ingestion_dag():
 
         run_bronze_load(s3_key)
 
+    @task(retries=1)
+    def run_dbt(**context):
+        import subprocess
+        import shutil
+
+        dbt_path = shutil.which("dbt")
+        if not dbt_path:
+            raise RuntimeError("dbt not found in PATH")
+
+        result = subprocess.run(
+            [
+                dbt_path, "run",
+                "--project-dir", "/opt/airflow/dbt",
+                "--profiles-dir", "/opt/airflow/dbt",
+                "--target", "prod",
+            ],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(
+                f"dbt run failed:\nSTDOUT:\n{result.stdout}\nSTDERR:\n{result.stderr}")
+
     first = run_vacancy_ingestion_task()
     second = run_bronze_load_task()
+    third = run_dbt()
 
-    first >> second
+    first >> second >> third
 
 
 vacancy_ingestion_dag()

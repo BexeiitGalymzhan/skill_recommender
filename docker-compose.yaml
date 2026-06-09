@@ -75,12 +75,22 @@ x-airflow-common: &airflow-common
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     # The following line can be used to set a custom config file, stored in the local config folder
     AIRFLOW_CONFIG: "/opt/airflow/config/airflow.cfg"
+    AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+    AWS_REGION: ${AWS_REGION}
+    AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: ${AWS_REGION}
+    S3_BUCKET_NAME: ${S3_BUCKET_NAME}
+    HH_TOKEN: ${HH_TOKEN}
+    CLIENT_ID: ${CLIENT_ID}
+    CLIENT_SECRET: ${CLIENT_SECRET}
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
     - ./src:/opt/airflow/src
+    - ./skill_reco:/opt/airflow/dbt
+    - ./skill_reco/skill_reco.duckdb:/opt/airflow/skill_reco.duckdb
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on: &airflow-common-depends-on
     redis:

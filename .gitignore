@@ -11,4 +11,5 @@ wheels/
 
 .env
 
-src/demo.py
+
+logs/

@@ -7,3 +7,10 @@ skill_reco:
       extensions:
         - delta
         - httpfs
+
+    prod:
+      type: duckdb
+      path: "/opt/airflow/skill_reco.duckdb"
+      extensions:
+        - delta
+        - httpfs
